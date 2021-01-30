@@ -33,7 +33,7 @@ function electronClick() {
     if (player.energy >= 100)  {
         player.energy -= 100;
         player.electrons ++;
-        player.eps += (player.eps * 10 + 1) / 10;
+        player.eps = (player.eps * 10 + 1) / 10;
     }
 }
 
@@ -56,7 +56,7 @@ function perSecond() {
     if (player.neutrons < 0) {
         player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10
     } else {
-        player.energy = (Math.round(player.energy * 10 + player.eps * 10)) / 10
+        player.energy = (player.energy * 10 + player.eps * 10) / 10
     }   
 }
 
