@@ -53,7 +53,11 @@ function neutronClick() {
 }
 
 function perSecond() {
-    player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10
+    if (player.neutrons < 0) {
+        player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10
+    } else {
+        player.energy = (Math.round(player.energy * 10 + player.eps * 10)) / 10
+    }   
 }
 
 function updateAmts() {
