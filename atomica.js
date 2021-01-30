@@ -26,7 +26,7 @@ var player = {
 }
 
 function energyClick() {
-    energy += epc;
+    player.energy += player.epc;
 }
 
 function electronClick() {
