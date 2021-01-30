@@ -13,7 +13,7 @@ const netBtn = document.querySelector("#net-btn");
 //const nrgAmt = document.querySelector("#nrg");
 
 //Variables!
-let player = {
+var player = {
     //amounts
     energy: 0,
     protons: 0,
@@ -30,37 +30,37 @@ function energyClick() {
 }
 
 function electronClick() {
-    if (energy >= 100)  {
-        energy -= 100;
-        electrons ++;
-        eps += (eps * 10 + 1) / 10;
+    if (player.energy >= 100)  {
+        player.energy -= 100;
+        player.electrons ++;
+        player.eps += (player.eps * 10 + 1) / 10;
     }
 }
 
 function protonClick() {
-    if (energy >= 10) {
-        energy -= 10;
-        protons ++;
-        epc ++;
+    if (player.energy >= 10) {
+        player.energy -= 10;
+        player.protons ++;
+        player.epc ++;
     }    
 }
 
 function neutronClick() {
-    if (energy >= 1000) {
-        energy -= 1000;
-        neutrons ++;
+    if (player.energy >= 1000) {
+        player.energy -= 1000;
+        player.neutrons ++;
     }
 }
 
 function perSecond() {
-    energy = (energy * 10 + (eps * 10 * neutrons)) / 10
+    player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10
 }
 
 function updateAmts() {
-    nrgAmt.innerHTML = energy;
-    prtAmt.innerHTML = protons;
-    elcAmt.innerHTML = electrons;
-    netAmt.innerHTML = neutrons;
+    nrgAmt.innerHTML = player.energy;
+    prtAmt.innerHTML = player.protons;
+    elcAmt.innerHTML = player.electrons;
+    netAmt.innerHTML = player.neutrons;
 }
 
 nrgBtn.addEventListener("click", energyClick);
