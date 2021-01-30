@@ -25,13 +25,20 @@ var player = {
     eps: 0,
 }
 
+var clickLvl = 1;
+var clickInterval
+
 function energyClick() {
-    player.energy += player.epc;
+    if (clickLvl = 1) {
+        player.energy += player.epc;
+        clickLvl = 5;
+        clickInterval = setInterval(clickTimer, 1000);
+    }
 }
 
 function electronClick() {
     if (player.energy >= 100)  {
-        player.energy -= 100;
+        player.energy = (energy * 10 - 1000) / 10;
         player.electrons ++;
         player.eps = (player.eps * 10 + 1) / 10;
     }
@@ -39,7 +46,7 @@ function electronClick() {
 
 function protonClick() {
     if (player.energy >= 10) {
-        player.energy -= 10;
+        player.energy = (energy * 10 - 10000) / 10;
         player.protons ++;
         player.epc ++;
     }    
@@ -47,7 +54,7 @@ function protonClick() {
 
 function neutronClick() {
     if (player.energy >= 1000) {
-        player.energy -= 1000;
+        player.energy = (energy * 10 - 100000) / 10;
         player.neutrons ++;
     }
 }
@@ -58,6 +65,28 @@ function perSecond() {
     } else {
         player.energy = (Math.round(player.energy * 10) + Math.round(player.eps * 10)) / 10;
     }   
+}
+
+function clickTimer() {
+    var clickStage
+    switch(clickLvl) {
+        case 2:
+            clickLvl = 1;
+            clickStage = "StageOne";
+            clearInterval(clickInterval);
+            break;
+        case 3:
+            clickLvl = 2;
+            clickStage = "StageTwo";
+            break;
+        case 4: 
+            clickLvl = 3;
+            clickStage = "StageThree";
+            break;
+        case 5:
+            clicklvl  = 4;
+            clickStage = "StageThree";
+    }
 }
 
 function updateAmts() {
@@ -75,6 +104,7 @@ netBtn.addEventListener("click", neutronClick);
 
 setInterval(updateAmts, 10)
 setInterval(perSecond, 1000)
+
 
 
 
