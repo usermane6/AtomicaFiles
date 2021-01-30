@@ -15,14 +15,14 @@ const netBtn = document.querySelector("#net-btn");
 //Variables!
 let player = {
     //amounts
-    energy = 0,
-    protons = 0,
-    neutrons = 0,
-    electrons = 0,
-    atoms = 0,
+    energy: 0,
+    protons: 0,
+    neutrons: 0,
+    electrons: 0,
+    atoms: 0,
     //levels
-    epc = 1,
-    eps = 0,
+    epc: 1,
+    eps: 0,
 }
 
 function energyClick() {
