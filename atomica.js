@@ -54,9 +54,9 @@ function neutronClick() {
 
 function perSecond() {
     if (player.neutrons < 0) {
-        player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10
+        player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10;
     } else {
-        player.energy = (player.energy * 10 + player.eps * 10) / 10
+        player.energy = (Math.round(player.energy * 10) + Math.round(player.eps * 10)) / 10;
     }   
 }
 
@@ -65,6 +65,7 @@ function updateAmts() {
     prtAmt.innerHTML = player.protons;
     elcAmt.innerHTML = player.electrons;
     netAmt.innerHTML = player.neutrons;
+    console.log(player)
 }
 
 nrgBtn.addEventListener("click", energyClick);
