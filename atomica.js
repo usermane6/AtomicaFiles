@@ -25,8 +25,9 @@ var player = {
     eps: 0,
 }
 
+var clickLvl = 1;
+
 function energyClick() {
-    var clickLvl = 1;
     var clickStage = "stageOne";
     function clickTimer () {
         nrgBtn.classList.remove(clickStage);
