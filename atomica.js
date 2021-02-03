@@ -25,14 +25,34 @@ var player = {
     eps: 0,
 }
 
-var clickLvl = 1;
-var clickInterval
-
 function energyClick() {
+    var clickLvl = 1;
+    var clickStage = "stageOne";
+    function clickTimer () {
+        nrgBtn.classList.remove(clickStage);
+        switch(clickLvl) {
+            case 2:
+                clickLvl = 1;
+                clickStage = "stageOne"
+                break;
+            case 3: 
+                clickLvl = 2;
+                clickStage = "stageTwo"
+                break;
+            case 4: 
+                clickLvl = 1;
+                clickStage = "stageThree"
+                break;
+            case 5: 
+                clickLvl = 2;
+                clickStage = "stageFour"
+        }
+    }
     if (clickLvl = 1) {
-        player.energy += player.epc;
-        clickLvl = 5;
-        clickInterval = setInterval(clickTimer, 1000);
+        player.energy = (energy * 10 + player.epc * 10) / 10;
+        clickLvl = 5
+        nrgBtn.classList.replace("stageOne", "stageFive")
+        setTimeout(clickTimer, 1000)
     }
 }
 
@@ -63,30 +83,8 @@ function perSecond() {
     if (player.neutrons < 0) {
         player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10;
     } else {
-        player.energy = (Math.round(player.energy * 10) + Math.round(player.eps * 10)) / 10;
+        player.energy = ((player.energy * 10) + (player.eps * 10)) / 10;
     }   
-}
-
-function clickTimer() {
-    var clickStage
-    switch(clickLvl) {
-        case 2:
-            clickLvl = 1;
-            clickStage = "StageOne";
-            clearInterval(clickInterval);
-            break;
-        case 3:
-            clickLvl = 2;
-            clickStage = "StageTwo";
-            break;
-        case 4: 
-            clickLvl = 3;
-            clickStage = "StageThree";
-            break;
-        case 5:
-            clicklvl  = 4;
-            clickStage = "StageThree";
-    }
 }
 
 function updateAmts() {
