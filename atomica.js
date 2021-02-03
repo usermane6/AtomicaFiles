@@ -33,26 +33,29 @@ function energyClick() {
         switch(clickLvl) {
             case 2:
                 clickLvl = 1;
-                clickStage = "stageOne"
+                clickStage = "stageOne";
                 break;
             case 3: 
                 clickLvl = 2;
-                clickStage = "stageTwo"
+                clickStage = "stageTwo";
                 break;
             case 4: 
                 clickLvl = 1;
-                clickStage = "stageThree"
+                clickStage = "stageThree";
                 break;
             case 5: 
                 clickLvl = 2;
-                clickStage = "stageFour"
+                clickStage = "stageFour";
         }
     }
     if (clickLvl = 1) {
-        player.energy = (energy * 10 + player.epc * 10) / 10;
-        clickLvl = 5
-        nrgBtn.classList.replace("stageOne", "stageFive")
-        setTimeout(clickTimer, 1000)
+        player.energy = (player.energy * 10 + player.epc * 10) / 10;
+        clickLvl = 5;
+        nrgBtn.classList.replace("stageOne", "stageFive");
+        setTimeout(clickTimer, 1000);
+        setTimeout(clickTimer, 2000);
+        setTimeout(clickTimer, 3000);
+        setTimeout(clickTimer, 4000);
     }
 }
 

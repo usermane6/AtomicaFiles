@@ -9,30 +9,30 @@ div {
 }
 
 button {
-    outline-width: 2px;
+    outline-width: 20px;
     cursor: pointer;
 }
 
 .stageOne {
-    outline: green;
+    outline-color: green;
 }
 
 .stageTwo {
-    outline: greenyellow;
+    outline-color: greenyellow;
     cursor: not-allowed;
 }
 
 .stageThree {
-    outline: rgb(255, 251, 0);
+    outline-color: rgb(255, 251, 0);
     cursor: not-allowed;
 }
 
 .stageFour {
-    outline: rgb(255, 128, 24);
+    outline-color: rgb(255, 128, 24);
     cursor: not-allowed;
 }
 
 .stageFive {
-    outline: rgb(253, 4, 4);
+    outline-color: rgb(253, 4, 4);
     cursor: not-allowed;
 }
