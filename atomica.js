@@ -48,6 +48,7 @@ function energyClick() {
                 clickLvl = 2;
                 clickStage = "stageFour";
         }
+        nrgBtn.classList.add(clickStage);
     }
     if (clickLvl = 1) {
         player.energy = (player.energy * 10 + player.epc * 10) / 10;
