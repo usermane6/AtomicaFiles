@@ -50,7 +50,7 @@ function energyClick() {
         }
         nrgBtn.classList.add(clickStage);
     }
-    if (clickLvl = 1) {
+    if (clickLvl == 1) {
         player.energy = (player.energy * 10 + player.epc * 10) / 10;
         clickLvl = 5;
         nrgBtn.classList.replace("stageOne", "stageFive");
