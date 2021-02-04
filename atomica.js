@@ -139,6 +139,10 @@ prtBtn.addEventListener("click", protonClick);
 elcBtn.addEventListener("click", electronClick);
 netBtn.addEventListener("click", neutronClick);
 
+elcBuyTen.addEventListener("click", buyTenElc);
+ptrBuyTen.addEventListener("click", buyTenPtr);
+netBuyTen.addEventListener("click", buyTenNet);
+
 setInterval(updateAmts, 10);
 setInterval(perSecond, 1000);
 
