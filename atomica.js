@@ -145,6 +145,7 @@ function perSecond() {
 }
 
 function saveGame() {
+    localStorage.removeItem('plyr')
     localStorage.setItem('plyr', JSON.stringify(plyr));
 }
 
