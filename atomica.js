@@ -100,7 +100,7 @@ function perSecond() {
 }
 
 function buyTenElc() {
-    if (plyr.energy >= 100) {
+    if (plyr.energy >= 1000) {
         for (let i = 0; i <= 10; i++) {
             electronClick();
         }
@@ -108,7 +108,7 @@ function buyTenElc() {
 }
 
 function buyTenPtr() {
-    if (plyr.energy >= 1000) {
+    if (plyr.energy >= 100) {
         for (let i = 0; i <= 10; i++) {
             protonClick();
         }
