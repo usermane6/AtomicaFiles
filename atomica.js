@@ -91,14 +91,6 @@ function neutronClick() {
     }
 }
 
-function perSecond() {
-    if (plyr.neutrons < 0) {
-        plyr.energy = (plyr.energy * 10 + (plyr.eps * 10 * plyr.neutrons)) / 10;
-    } else {
-        plyr.energy = ((plyr.energy * 10) + (plyr.eps * 10)) / 10;
-    }   
-}
-
 function buyTenElc() {
     if (plyr.energy >= 1000) {
         for (let i = 0; i <= 9; i++) {
@@ -132,6 +124,15 @@ function updateAmts() {
     updater(plyr.neutrons, netAmt);
     updater(plyr.electrons, elcAmt);
     console.log(plyr);
+}
+
+
+function perSecond() {
+    if (plyr.neutrons > 0) {
+        plyr.energy = (plyr.energy * 10 + (plyr.eps * 10 * plyr.neutrons)) / 10;
+    } else {
+        plyr.energy = ((plyr.energy * 10) + (plyr.eps * 10)) / 10;
+    }   
 }
 
 nrgBtn.addEventListener("click", energyClick);
