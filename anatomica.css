@@ -14,6 +14,14 @@ button {
     cursor: pointer;
 }
 
+.saveLoad {
+    text-align: left;
+}
+
+.wipeSave {
+    color: red;
+}
+
 .stageOne {
     background-color: green;
     cursor: pointer;

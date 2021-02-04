@@ -6,14 +6,21 @@ const elcAmt = document.querySelector("#elc-amt");
 const prtAmt = document.querySelector("#prt-amt");
 const netAmt = document.querySelector("#net-amt");
 
+//general buttons
 const nrgBtn = document.querySelector("#nrg-btn");
 const elcBtn = document.querySelector("#elc-btn");
 const prtBtn = document.querySelector("#prt-btn");
 const netBtn = document.querySelector("#net-btn");
 
+//buttons that buy 10
 const ptrBuyTen = document.querySelector("#prt-buy-ten");
 const elcBuyTen = document.querySelector("#elc-buy-ten");
 const netBuyTen = document.querySelector("#net-buy-ten");
+
+//stuff dealing with saves
+const wipeSaveBtn = document.querySelector("#wipe-save");
+const saveGameBtn = document.querySelector("#save");
+const loadGameBtn = document.querySelector("#load");
 
 //Variables!
 var plyr = {
@@ -23,16 +30,19 @@ var plyr = {
     neutrons: 0,
     electrons: 0,
     atoms: 0,
+
     //levels
     epc: 1,
     eps: 0,
 }
 
+var game = plyr
 
 var clickLvl = 1;
 
 function energyClick() {
     var clickStage = "stageOne";
+    //needlessly complicated timer code
     function clickTimer () {
         switch(clickLvl) {
             case 2:
@@ -57,6 +67,7 @@ function energyClick() {
         }
         nrgBtn.classList.add(clickStage);
     }
+    //it works, dont mess with it
     if (clickLvl == 1) {
         plyr.energy = (plyr.energy * 10 + plyr.epc * 10) / 10;
         clickLvl = 5;
@@ -135,6 +146,20 @@ function perSecond() {
     }   
 }
 
+function saveGame() {
+    localStorage.setItem('plyr', JSON.stringify(plyr));
+}
+
+function loadGame() {
+    plyr = JSON.parse(localStorage.getItem('plyr'));
+}
+
+function wipeSave() {
+    plyr = game;
+    localStorage.setItem('plyr', JSON.stringify(plyr));
+}
+
+//eventlisteners woo hoo
 nrgBtn.addEventListener("click", energyClick);
 prtBtn.addEventListener("click", protonClick);
 elcBtn.addEventListener("click", electronClick);
@@ -144,8 +169,11 @@ elcBuyTen.addEventListener("click", buyTenElc);
 ptrBuyTen.addEventListener("click", buyTenPtr);
 netBuyTen.addEventListener("click", buyTenNet);
 
+wipeSaveBtn.addEventListener("click", )
+
 setInterval(updateAmts, 10);
 setInterval(perSecond, 1000);
+setInterval(saveGame, 10000);
 
 
 
