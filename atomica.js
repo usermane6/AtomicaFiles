@@ -36,7 +36,18 @@ var plyr = {
     eps: 0,
 }
 
-var game = plyr
+var game = {
+    //amounts
+    energy: 0,
+    protons: 0,
+    neutrons: 0,
+    electrons: 0,
+    atoms: 0,
+
+    //levels
+    epc: 1,
+    eps: 0,
+}
 
 var clickLvl = 1;
 
@@ -156,7 +167,7 @@ function loadGame() {
 
 function wipeSave() {
     plyr = game;
-    localStorage.setItem('plyr', JSON.stringify(plyr));
+    saveGame();
 }
 
 //eventlisteners woo hoo
