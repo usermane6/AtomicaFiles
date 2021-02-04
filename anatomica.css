@@ -2,7 +2,7 @@
     text-align: center;
     background-color: rgb(43, 43, 43);
     padding: 5px;
-    color: cornsilk;
+    color: rgb(194, 194, 194);
 }
 
 div {
@@ -15,25 +15,25 @@ button {
 }
 
 .stageOne {
-    outline-color: green;
+    background-color: green;
 }
 
 .stageTwo {
-    outline-color: greenyellow;
+    background-color: greenyellow;
     cursor: not-allowed;
 }
 
 .stageThree {
-    outline-color: rgb(255, 251, 0);
+    background-color: rgb(255, 251, 0);
     cursor: not-allowed;
 }
 
 .stageFour {
-    outline-color: rgb(255, 128, 24);
+    background-color: rgb(255, 128, 24);
     cursor: not-allowed;
 }
 
 .stageFive {
-    outline-color: rgb(253, 4, 4);
+    background-color: rgb(253, 4, 4);
     cursor: not-allowed;
 }

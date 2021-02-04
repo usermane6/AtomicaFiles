@@ -61,6 +61,14 @@ function energyClick() {
     }
 }
 
+function protonClick() {
+    if (player.energy >= 10) {
+        player.energy = (player.energy * 10 - 100) / 10;
+        player.protons ++;
+        player.epc ++;
+    }    
+}
+
 function electronClick() {
     if (player.energy >= 100)  {
         player.energy = (player.energy * 10 - 1000) / 10;
@@ -69,17 +77,9 @@ function electronClick() {
     }
 }
 
-function protonClick() {
-    if (player.energy >= 10) {
-        player.energy = (player.energy * 10 - 10000) / 10;
-        player.protons ++;
-        player.epc ++;
-    }    
-}
-
 function neutronClick() {
     if (player.energy >= 1000) {
-        player.energy = (player.energy * 10 - 100000) / 10;
+        player.energy = (player.energy * 10 - 10000) / 10;
         player.neutrons ++;
     }
 }
