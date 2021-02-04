@@ -41,11 +41,11 @@ function energyClick() {
                 clickStage = "stageTwo";
                 break;
             case 4: 
-                clickLvl = 1;
+                clickLvl = 3;
                 clickStage = "stageThree";
                 break;
             case 5: 
-                clickLvl = 2;
+                clickLvl = 4;
                 clickStage = "stageFour";
         }
         nrgBtn.classList.add(clickStage);
@@ -63,7 +63,7 @@ function energyClick() {
 
 function electronClick() {
     if (player.energy >= 100)  {
-        player.energy = (energy * 10 - 1000) / 10;
+        player.energy = (player.energy * 10 - 1000) / 10;
         player.electrons ++;
         player.eps = (player.eps * 10 + 1) / 10;
     }
@@ -71,7 +71,7 @@ function electronClick() {
 
 function protonClick() {
     if (player.energy >= 10) {
-        player.energy = (energy * 10 - 10000) / 10;
+        player.energy = (player.energy * 10 - 10000) / 10;
         player.protons ++;
         player.epc ++;
     }    
@@ -79,7 +79,7 @@ function protonClick() {
 
 function neutronClick() {
     if (player.energy >= 1000) {
-        player.energy = (energy * 10 - 100000) / 10;
+        player.energy = (player.energy * 10 - 100000) / 10;
         player.neutrons ++;
     }
 }
