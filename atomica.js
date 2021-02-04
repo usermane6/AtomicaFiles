@@ -10,10 +10,13 @@ const nrgBtn = document.querySelector("#nrg-btn");
 const elcBtn = document.querySelector("#elc-btn");
 const prtBtn = document.querySelector("#prt-btn");
 const netBtn = document.querySelector("#net-btn");
-//const nrgAmt = document.querySelector("#nrg");
+
+const ptrBuyTen = document.querySelector("#prt-buy-ten");
+const elcBuyTen = document.querySelector("#elc-buy-ten");
+const netBuyTen = document.querySelector("#net-buy-ten");
 
 //Variables!
-var player = {
+var plyr = {
     //amounts
     energy: 0,
     protons: 0,
@@ -24,6 +27,7 @@ var player = {
     epc: 1,
     eps: 0,
 }
+
 
 var clickLvl = 1;
 
@@ -54,7 +58,7 @@ function energyClick() {
         nrgBtn.classList.add(clickStage);
     }
     if (clickLvl == 1) {
-        player.energy = (player.energy * 10 + player.epc * 10) / 10;
+        plyr.energy = (plyr.energy * 10 + plyr.epc * 10) / 10;
         clickLvl = 5;
         nrgBtn.classList.replace("stageOne", "stageFive");
         setTimeout(clickTimer, 1000);
@@ -65,42 +69,69 @@ function energyClick() {
 }
 
 function protonClick() {
-    if (player.energy >= 10) {
-        player.energy = (player.energy * 10 - 100) / 10;
-        player.protons ++;
-        player.epc ++;
+    if (plyr.energy >= 10) {
+        plyr.energy = (plyr.energy * 10 - 100) / 10;
+        plyr.protons ++;
+        plyr.epc ++;
     }    
 }
 
 function electronClick() {
-    if (player.energy >= 100)  {
-        player.energy = (player.energy * 10 - 1000) / 10;
-        player.electrons ++;
-        player.eps = (player.eps * 10 + 1) / 10;
+    if (plyr.energy >= 100)  {
+        plyr.energy = (plyr.energy * 10 - 1000) / 10;
+        plyr.electrons ++;
+        plyr.eps = (plyr.eps * 10 + 1) / 10;
     }
 }
 
 function neutronClick() {
-    if (player.energy >= 1000) {
-        player.energy = (player.energy * 10 - 10000) / 10;
-        player.neutrons ++;
+    if (plyr.energy >= 1000) {
+        plyr.energy = (plyr.energy * 10 - 10000) / 10;
+        plyr.neutrons ++;
     }
 }
 
 function perSecond() {
-    if (player.neutrons < 0) {
-        player.energy = (player.energy * 10 + (player.eps * 10 * player.neutrons)) / 10;
+    if (plyr.neutrons < 0) {
+        plyr.energy = (plyr.energy * 10 + (plyr.eps * 10 * plyr.neutrons)) / 10;
     } else {
-        player.energy = ((player.energy * 10) + (player.eps * 10)) / 10;
+        plyr.energy = ((plyr.energy * 10) + (plyr.eps * 10)) / 10;
     }   
 }
 
+function buyTenElc() {
+    if (plyr.energy >= 100) {
+        for (let i = 0; i <= 10; i++) {
+            electronClick();
+        }
+    }
+}
+
+function buyTenPtr() {
+    if (plyr.energy >= 1000) {
+        for (let i = 0; i <= 10; i++) {
+            protonClick();
+        }
+    }
+}
+
+function buyTenNet() {
+    if (plyr.energy >= 10000) {
+        for (let i = 0; i <= 10; i++) {
+            neutronClick();
+        }
+    }
+}
+
 function updateAmts() {
-    nrgAmt.innerHTML = player.energy;
-    prtAmt.innerHTML = player.protons;
-    elcAmt.innerHTML = player.electrons;
-    netAmt.innerHTML = player.neutrons;
-    console.log(player)
+    function updater(x, y) {
+        x >= 1000 ? y.innerHTML = x.toExponential(2) : y.innerHTML = x;
+    }
+    updater(plyr.energy, nrgAmt);
+    updater(plyr.protons, prtAmt);
+    updater(plyr.neutrons, netAmt);
+    updater(plyr.electrons, elcAmt);
+    console.log(plyr);
 }
 
 nrgBtn.addEventListener("click", energyClick);
@@ -108,8 +139,8 @@ prtBtn.addEventListener("click", protonClick);
 elcBtn.addEventListener("click", electronClick);
 netBtn.addEventListener("click", neutronClick);
 
-setInterval(updateAmts, 10)
-setInterval(perSecond, 1000)
+setInterval(updateAmts, 10);
+setInterval(perSecond, 1000);
 
 
 
