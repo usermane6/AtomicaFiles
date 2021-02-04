@@ -153,7 +153,7 @@ function loadGame() {
 }
 
 function wipeSave() {
-    //dumb code is dumb and I hate it
+    //dumb code is dumb and I hate it | He despises it.
     plyr.energy = 0;
     plyr.electrons = 0;
     plyr.neutrons = 0;
@@ -594,4 +594,4 @@ setInterval(saveGame, 10000);
 
 
 
-//Bernie Sanders' dwelling, this is where he dwells.
+//Bernie Sanders' dwelling, this is where he dwells. Born in the cretacious period, he has lived through multiple mass extinctions.
