@@ -36,19 +36,6 @@ var plyr = {
     eps: 0,
 }
 
-var game = {
-    //amounts
-    energy: 0,
-    protons: 0,
-    neutrons: 0,
-    electrons: 0,
-    atoms: 0,
-
-    //levels
-    epc: 1,
-    eps: 0,
-}
-
 var clickLvl = 1;
 
 function energyClick() {
@@ -166,8 +153,14 @@ function loadGame() {
 }
 
 function wipeSave() {
-    plyr = game;
-    saveGame();
+    //dumb code is dumb and I hate it
+    plyr.energy = 0;
+    plyr.electrons = 0;
+    plyr.neutrons = 0;
+    plyr.protons = 0;
+    plyr.atoms = 0;
+    plyr.epc = 1;
+    plyr.eps = 0;
 }
 
 //eventlisteners woo hoo
