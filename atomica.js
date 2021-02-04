@@ -30,22 +30,25 @@ var clickLvl = 1;
 function energyClick() {
     var clickStage = "stageOne";
     function clickTimer () {
-        nrgBtn.classList.remove(clickStage);
         switch(clickLvl) {
             case 2:
                 clickLvl = 1;
+                nrgBtn.classList.remove("stageTwo");
                 clickStage = "stageOne";
                 break;
             case 3: 
                 clickLvl = 2;
+                nrgBtn.classList.remove("stageThree");
                 clickStage = "stageTwo";
                 break;
             case 4: 
                 clickLvl = 3;
+                nrgBtn.classList.remove("stageFour");
                 clickStage = "stageThree";
                 break;
             case 5: 
                 clickLvl = 4;
+                nrgBtn.classList.remove("stageFive");
                 clickStage = "stageFour";
         }
         nrgBtn.classList.add(clickStage);
