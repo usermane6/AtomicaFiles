@@ -160,16 +160,21 @@ function wipeSave() {
 }
 
 //eventlisteners woo hoo
+//normal button event listeners
 nrgBtn.addEventListener("click", energyClick);
 prtBtn.addEventListener("click", protonClick);
 elcBtn.addEventListener("click", electronClick);
 netBtn.addEventListener("click", neutronClick);
 
+//buy ten event listeners
 elcBuyTen.addEventListener("click", buyTenElc);
 ptrBuyTen.addEventListener("click", buyTenPtr);
 netBuyTen.addEventListener("click", buyTenNet);
 
-wipeSaveBtn.addEventListener("click", )
+//save state event listeners
+wipeSaveBtn.addEventListener("click", wipeSave);
+saveGameBtn.addEventListener("click", saveGame);
+loadGameBtn.addEventListener("click", loadGame);
 
 setInterval(updateAmts, 10);
 setInterval(perSecond, 1000);
