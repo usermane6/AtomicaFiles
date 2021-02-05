@@ -70,6 +70,8 @@ function energyClick() {
         plyr.energy = (plyr.energy * 10 + plyr.epc * 10) / 10;
         clickLvl = 5;
         nrgBtn.classList.replace("stageOne", "stageFive");
+        nrgAmt.classList.replace("stageOne", "stageFive");
+        
         setTimeout(clickTimer, 1000);
         setTimeout(clickTimer, 2000);
         setTimeout(clickTimer, 3000);

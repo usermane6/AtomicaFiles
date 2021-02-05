@@ -6,12 +6,29 @@
 }
 
 div {
-    margin: 20px;
+    margin: 10px;
+}
+
+p {
+    background-color: rgb(51, 51, 51);
 }
 
 button {
-    outline-width: 20px;
+    outline-style: groove;
+    outline-width: 3.5px;
     cursor: pointer;
+    background-color: rgb(51, 51, 51);
+}
+
+.nrgBtn {
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px; 
+}
+
+.buyingButton {
+    width: 100px;
+    height: 150px;
 }
 
 .saveLoad {
@@ -19,11 +36,11 @@ button {
 }
 
 .wipeSave {
-    color: red;
+    color: rgb(202, 0, 0);
 }
 
 .stageOne {
-    background-color: green;
+    background-color: rgb(77, 160, 0);
     cursor: pointer;
 }
 
@@ -33,16 +50,33 @@ button {
 }
 
 .stageThree {
-    background-color: rgb(255, 251, 0);
+    background-color: rgb(255, 230, 0);
     cursor: not-allowed;
 }
 
 .stageFour {
-    background-color: rgb(255, 128, 24);
+    background-color: rgb(255, 120, 9);
     cursor: not-allowed;
 }
 
 .stageFive {
     background-color: rgb(253, 4, 4);
     cursor: not-allowed;
+}
+
+.proton {
+    color: red;
+}
+
+.neutron {
+    color: green;
+}
+
+.electron {
+    color: blue;
+}
+
+.buyTen {
+    margin-right: 20px;
+    margin-left: 20px;
 }
