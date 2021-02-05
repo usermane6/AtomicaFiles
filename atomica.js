@@ -6,6 +6,8 @@ const elcAmt = document.querySelector("#elc-amt");
 const prtAmt = document.querySelector("#prt-amt");
 const netAmt = document.querySelector("#net-amt");
 
+const nrgTitle = document.querySelector("#nrg-title");
+
 //general buttons
 const nrgBtn = document.querySelector("#nrg-btn");
 const elcBtn = document.querySelector("#elc-btn");
@@ -40,36 +42,42 @@ var clickLvl = 1;
 
 function energyClick() {
     var clickStage = "stageOne";
+    var previousStage;
     //needlessly complicated timer code
     function clickTimer () {
         switch(clickLvl) {
             case 2:
                 clickLvl = 1;
-                nrgBtn.classList.remove("stageTwo");
+                previousStage = clickStage;
                 clickStage = "stageOne";
                 break;
             case 3: 
                 clickLvl = 2;
-                nrgBtn.classList.remove("stageThree");
+                previousStage = clickStage;
                 clickStage = "stageTwo";
                 break;
             case 4: 
                 clickLvl = 3;
-                nrgBtn.classList.remove("stageFour");
+                previousStage = clickStage;
                 clickStage = "stageThree";
                 break;
             case 5: 
                 clickLvl = 4;
-                nrgBtn.classList.remove("stageFive");
+                previousStage = clickStage;
                 clickStage = "stageFour";
         }
-        nrgBtn.classList.add(clickStage);
+        nrgBtn.classList.replace(previousStage, clickStage);
+        nrgTitle.classList.replace(previousStage, clickStage);
+        nrgAmt.classList.replace(previousStage, clickStage);
     }
     //it works, dont mess with it
     if (clickLvl == 1) {
         plyr.energy = (plyr.energy * 10 + plyr.epc * 10) / 10;
         clickLvl = 5;
-        nrgBtn.classList.replace("stageOne", "stageFive")
+        nrgBtn.classList.replace("stageOne", "stageFive");
+        nrgAmt.classList.replace("stageOne", "stageFive");
+        nrgTitle.classList.replace("stageOne", "stageFive");
+        clickStage = "stageFive"
         setTimeout(clickTimer, 1000);
         setTimeout(clickTimer, 2000);
         setTimeout(clickTimer, 3000);
